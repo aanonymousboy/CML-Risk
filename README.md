@@ -3,6 +3,8 @@
 This repo provides a reference implementation of **CML-Risk** as described in the paper "Contrastive Multi-task Learning for Risk Prediction":
 
 ![Contrastive Objectives](pics/CL_paradigm.png)
+
+Submitted to SIGIR 2022 for review
 --------------------
 
 While the earnings transcript dataset cannot be publicly released due to the data provider's policy, we make our contrastive multi-tasking learning implementation publicly available.
@@ -37,7 +39,7 @@ After training, turn on --test to test model with best checkpoint. We select the
 * `assets`: contains `best_checkpoint.pth`. Necessary for computing MSE, MAE, Spearsman's rho and Kendal's tau.
 * `data`: contains `data_2015.pkl`, `data_2016.pkl`, `data_2017.pkl`, `data_2018.pkl`.
 * `model`: contains `contrastive_multi_mlp.py`. Our model's file. We use MLPs to construct the network.
-* `utils`: We implement attention, contrastive loss, and other functions here. The InfoNCE PyTorch implementation is referred from [Representation Learning with Contrastive Predictive Coding](https://github.com/RElbers/info-nce-pytorch).
+* `utils`: we implement attention, contrastive loss, and other functions here. The InfoNCE PyTorch implementation is referred from [Representation Learning with Contrastive Predictive Coding](https://github.com/RElbers/info-nce-pytorch).
 
 ### Data structure
 We use Bert-typed pre-trained models from [Sentence Bert](https://www.sbert.net/) to generate sentence embeddings. This model is based on the pre-trained [Bert-based-un-cased](https://huggingface.co/bert-base-uncased) and a pooling layer. Note that other pretrained language models such as [RoBERTa](https://huggingface.co/roberta-base) and [FinBert](https://huggingface.co/yiyanghkust/finbert-pretrain) can also be used as the text encoder, but we find the results are similar.

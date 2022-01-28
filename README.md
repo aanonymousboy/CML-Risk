@@ -1,7 +1,7 @@
 # Contrastive Multi-task Learning for Risk Prediction
 
 This repo provides a reference implementation of **CML-Risk** as described in the paper "Contrastive Multi-task Learning for Risk Prediction":
-
+![Contrastive Objectives](pics/CL_paradigm.pdf)
 --------------------
 
 While the earnings transcript dataset cannot be publicly released due to the data provider's policy, we make our contrastive multi-tasking learning implementation publicly available.

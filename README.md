@@ -42,7 +42,7 @@ After training, turn on --test to test model with best checkpoint. We select the
 * `utils`: we implement attention, contrastive loss, and other functions here. The InfoNCE PyTorch implementation is referred from [Representation Learning with Contrastive Predictive Coding](https://github.com/RElbers/info-nce-pytorch).
 
 ### Data structure
-We use Bert-typed pre-trained models from [Sentence Bert](https://www.sbert.net/) to generate sentence embeddings. This model is based on the pre-trained [Bert-based-un-cased](https://huggingface.co/bert-base-uncased) and a pooling layer. Note that other pretrained language models such as [RoBERTa](https://huggingface.co/roberta-base) and [FinBert](https://huggingface.co/yiyanghkust/finbert-pretrain) can also be used as the text encoder, but we find the results are similar.
+We use Bert-typed pre-trained models from [Sentence Bert](https://www.sbert.net/) to generate sentence embeddings. This model is composed of the pre-trained [Bert-based-un-cased](https://huggingface.co/bert-base-uncased) and a pooling layer. Note that other pre-trained language models such as [RoBERTa](https://huggingface.co/roberta-base) and [FinBert](https://huggingface.co/yiyanghkust/finbert-pretrain) can also be used as the text encoder, but we find the results are similar.
 
 
 ### Ablation study with LDA topic model

@@ -1,6 +1,6 @@
 # Contrastive Multi-task Learning for Risk Prediction
 
-This repo provides a reference implementation of **CML-Risk** as described in the paper [Contrastive Multi-task Learning for Risk Prediction]():
+This repo provides a reference implementation of **CML-Risk** as described in the paper "Contrastive Multi-task Learning for Risk Prediction":
 
 --------------------
 

@@ -7,13 +7,12 @@ import torch.nn.functional as F
 
 class SimpleConcatAttention(nn.Module):
     '''
-    w[x1||x2]
     '''
 
     def __init__(self, emb_dim):
         super(SimpleConcatAttention, self).__init__()
         self.emb_dim = emb_dim
-        self.W = nn.Parameter(torch.Tensor(2 * emb_dim, emb_dim))
+        self.W = nn.Parameter(torch.Tensor(emb_dim, emb_dim))
 
     def forward(self, query, key, dim=-2, att_mask=None):
         """
@@ -26,7 +25,7 @@ class SimpleConcatAttention(nn.Module):
         out = None
         att = None
         if len(query.shape) == len(key.shape) == 2:
-            att = query @ key.transpose(0, 1)
+            att = query @ self.W @ key.transpose(0, 1) / np.sqrt(self.emb_dim)
             if att_mask is not None:
                 att = att.masked_fill(~att_mask, -np.inf)
             att = F.softmax(att, dim=dim)
@@ -35,6 +34,7 @@ class SimpleConcatAttention(nn.Module):
             batch_size = key.shape[0]
             query = query.unsqueeze(dim=0)
             query = query.tile(batch_size, 1, 1)  # [b, K, d]
+            query = query @ self.W / np.sqrt(self.emb_dim)
             att = torch.bmm(query, key.transpose(1, 2))  # [b, K, N]
             if att_mask is not None:
                 att = att.masked_fill(~att_mask, -np.inf)
